@@ -30,7 +30,7 @@ jobs:
 
      deploy:
        provider: npm
-       email: newtonliu0@gmail.com
+       email: "$NPM_EMAIL"
        api_key: "$NPM_TOKEN"
        skip_cleanup: true
        on:
