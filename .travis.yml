@@ -10,6 +10,7 @@ install:
  - npm install
 stages:
  - test
+ - name: build
  - name: deploy
 jobs:
  include:
@@ -20,14 +21,14 @@ jobs:
        - echo "Testing Started ..."
        - npm test
        - echo "Testing Finished."
-
-   - stage: deploy
+   - stage: build
      script:
-       - echo "NPM Deploying Started ..."
+       - echo "NPM Building Started ..."
        - npm version
        - npm run build
        - echo "NPM Building Finished."
-
+   - stage: deploy
+     if: branch = master
      deploy:
        provider: npm
        email: "$NPM_EMAIL"
