@@ -34,6 +34,7 @@ abstract class EventTarget {
 
         if (this.listeners.has(type)) {
             this.listeners.get(type).forEach((listener: (event: Event) => void): void => {
+                event.currentTarget = this;
                 listener.call(this, event);
             });
         }
