@@ -17,8 +17,6 @@ class Event {
     public set target(target: unknown) {
         if (!this._isFrozen) {
             this._target = target;
-        } else {
-            console.warn('The property of target is frozen.');
         }
     }
 
@@ -29,8 +27,6 @@ class Event {
     public set currentTarget(currentTarget: unknown) {
         if (!this._isFrozen) {
             this._currentTarget = currentTarget;
-        } else {
-            console.warn('The property of currentTarget is frozen.');
         }
     }
 
