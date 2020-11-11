@@ -31,10 +31,10 @@ abstract class EventTarget {
 
     public dispatchEvent(event: Event): void {
         const type: string | symbol = event.type;
-
         if (this.listeners.has(type)) {
+            event.currentTarget = this;
+            event.freeze();
             this.listeners.get(type).forEach((listener: (event: Event) => void): void => {
-                event.currentTarget = this;
                 listener.call(this, event);
             });
         }
