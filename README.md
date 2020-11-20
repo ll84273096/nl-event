@@ -1,5 +1,12 @@
-# 基于Typescript的Event模块
-基于Typescript的Event模块
+# Event and EventTarget based on typescript
+This package contains two base classes, event and EventTarget. 
 
-## MIT Licenced
-运用此模板编写npm包，再发布之前完善许可信息 
+Event is the base class of events, and EventTarget is the base class of sending events. EventTarget is an abstract class, which can only be inherited and cannot be instantiated.
+
+## Installation
+```bash
+$ npm install nl-event --save
+```
+
+## License
+[MIT](LICENSE)
