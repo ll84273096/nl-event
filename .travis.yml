@@ -12,6 +12,8 @@ stages:
   - test
   - build
   - name: deploy
+before_deploy:
+  - cd dist
 jobs:
   include:
     - stage: test

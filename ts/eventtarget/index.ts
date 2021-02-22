@@ -31,8 +31,8 @@ abstract class EventTarget {
 
     public dispatchEvent(event: Event): void {
         const type: string | symbol = event.type;
-
         if (this.listeners.has(type)) {
+            event.setCurrentTarget(this);
             this.listeners.get(type).forEach((listener: (event: Event) => void): void => {
                 listener.call(this, event);
             });
