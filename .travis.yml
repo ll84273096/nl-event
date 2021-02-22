@@ -10,8 +10,7 @@ install:
   - npm install
 stages:
   - test
-  - name: build
-  - name: deploy
+  - build
 jobs:
   include:
     - stage: test
@@ -27,8 +26,6 @@ jobs:
         - npm version
         - npm run build
         - echo "NPM Building Finished."
-    - stage: deploy
-      if: branch = master
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
@@ -36,3 +33,4 @@ jobs:
         skip_cleanup: true
         on:
           branch: master
+
