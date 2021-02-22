@@ -27,6 +27,7 @@ jobs:
         - npm version
         - npm run build
         - echo "NPM Building Finished."
+      skip_cleanup: true
     - stage: deploy
       if: branch = master
       deploy:
@@ -37,4 +38,3 @@ jobs:
         on:
           branch: master
 
-          
